@@ -1,0 +1,19 @@
+﻿@model ContentModel
+
+@{
+    ViewData["Title"] = Model.contentTitle;
+}
+
+<div class="p-5">
+    <h1>@Model.contentTitle</h1>
+</div>
+<div class="container text-center">
+    <img decoding="async" fetchpriority="high" class="aligncenter wp-image-75617 size-complete_open_graph" src="@Model.contentImage" alt="" width="1200" height="800">
+    <div class="p-3">
+        @Model.contentDescription
+    </div>
+    <div class="mt-3">
+        <td><a class="btn btn-danger" asp-controller="Home" asp-action="DeleteContent" asp-route-id="@Model.contentID" onclick="return confirm('คุณต้องการลบ @Model.contentTitle หรือไม่?')">Delete</a></td>
+        <td><a class="btn btn-warning" asp-controller="Home" asp-action="EditContent" asp-route-id="@Model.contentID">Edit</a></td>
+    </div>
+</div>

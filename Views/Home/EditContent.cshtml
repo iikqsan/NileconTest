@@ -1,0 +1,27 @@
+﻿@model ContentModel
+
+@{
+    ViewData["Title"] = "แก้ไขเนื้อหา";
+}
+<div class="p-5">
+    <h1>แก้ไขเนื้อหา</h1>
+</div>
+
+<form method="POST" asp-controller="Home" asp-action="EditContent">
+    <div class="mb-3">
+        <label asp-for="contentTitle" class="form-label"></label>
+        <input asp-for="contentTitle" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="contentImage" class="form-label"></label>
+        <input asp-for="contentImage" type="url" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="contentDescription" class="form-label"></label>
+        <input asp-for="contentDescription" type="text" class="form-control">
+    </div>
+    <div class="d-flex flex-row flex-row-reverse">
+        <a class="btn btn-danger" asp-controller="Home" asp-action="ViewContent" asp-route-id="@Model.contentID">Canceled</a>
+        <button type="submit" class="btn btn-primary me-2">Edit</button>
+    </div>
+</form>
